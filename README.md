@@ -18,7 +18,7 @@ in public.
 ## Status
 
 Early. The site currently documents the research foundation and the plan —
-the agent architecture itself has not been built yet. See the Showcase
+the agent architecture build will be documented. See the "the project"
 section on the site for what's actually in motion.
 
 ## Contributing / reuse
