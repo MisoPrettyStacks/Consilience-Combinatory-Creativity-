@@ -4,7 +4,7 @@ A public research and brainstorm hub for building an agentic AI oriented
 around **consilience** (unity of knowledge across disciplines) and
 **combinatory creativity** (Boden's framework for novel value from
 recombining familiar ideas). Curated publications, open suggestions from
-the AI collaborator, and an honest work-in-progress showcase — built free,
+the AI collaborator, and an honest work-in-progress showcase — built using free forever and freemium resources,
 in public.
 
 **Live site:** enable GitHub Pages for this repo (Settings → Pages → Deploy
