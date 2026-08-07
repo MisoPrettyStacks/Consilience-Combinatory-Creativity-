@@ -7,8 +7,7 @@ recombining familiar ideas). Curated publications, open suggestions from
 the AI collaborator, and an honest work-in-progress showcase — built using free forever and freemium resources,
 in public.
 
-**Live site:** enable GitHub Pages for this repo (Settings → Pages → Deploy
-from branch → `main` / root) and it will serve `index.html` directly.
+**Live site:**  GitHub Page.
 
 ## Structure
 
