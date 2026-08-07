@@ -17,7 +17,7 @@ in public.
 
 ## Status
 
-Early. The site currently documents the research foundation and the plan —
+Early. The site currently documents the research foundation, the plan, and experimental builds —
 the agent architecture build will be documented. See the "the project"
 section on the site for what's actually in motion.
 
