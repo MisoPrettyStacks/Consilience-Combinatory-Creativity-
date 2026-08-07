@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consilience Lab — Where Ideas Collide</title>
+<meta name="description" content="A public research and brainstorm hub exploring consilience and combinatory creativity in agentic AI. Curated publications, open suggestions, and work-in-progress, built free for everyone.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --white:#ffffff;
+    --barbie-pink:#e0218a;
+    --hot-pink:#ff3ea5;
+    --blush:#ffeef6;
+    --blush-2:#fff6fb;
+    --deep-magenta:#9b1063;
+    --ink:#241521;
+    --ink-soft:#6e5866;
+    --line:#ffd3ea;
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Quicksand', sans-serif;
+    font-weight:500;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--barbie-pink); color:#fff; }
+
+  a{ color:var(--deep-magenta); text-decoration-color:var(--line); }
+  a:hover{ color:var(--hot-pink); }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  h1,h2,h3{ margin:0; }
+
+  .script{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    color:var(--barbie-pink);
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--deep-magenta);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:16px; height:16px;
+    background: var(--venn-icon);
+    display:inline-block;
+  }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; flex-wrap:wrap;
+  }
+  .nav-mark{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:1.6rem;
+    color:var(--barbie-pink);
+  }
+  .nav-links{
+    display:flex; gap:22px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .nav-links a{ color:var(--ink); text-decoration:none; }
+  .nav-links a:hover{ color:var(--barbie-pink); }
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    position:relative;
+    padding:110px 28px 90px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .venn-bg{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+    opacity:0.55;
+  }
+  .venn-bg svg{ width:min(720px, 90vw); height:auto; }
+
+  .hero-content{ position:relative; z-index:1; }
+
+  .hero h1{
+    font-size:clamp(3.2rem, 9vw, 6.4rem);
+    line-height:0.95;
+    letter-spacing:0.01em;
+  }
+  .hero .tagline{
+    max-width:560px;
+    margin:22px auto 0;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+  .hero .badge-row{
+    margin-top:30px;
+    display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+  }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.05em;
+    padding:7px 14px;
+    border-radius:999px;
+    border:1.5px solid var(--barbie-pink);
+    color:var(--deep-magenta);
+    background:var(--blush-2);
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:86px 0; border-top:1px solid var(--line); }
+  section:first-of-type{ border-top:none; }
+  .section-head{ margin-bottom:44px; max-width:680px; }
+  .section-head h2{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:clamp(2.2rem, 4.5vw, 3.2rem);
+    color:var(--barbie-pink);
+    margin-top:10px;
+  }
+  .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:1rem; max-width:600px; }
+
+  /* ---------- Mission / definitions ---------- */
+  .terms{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    margin-top:10px;
+  }
+  .term-card{
+    background:var(--blush-2);
+    border:1.5px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 24px;
+  }
+  .term-card .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--hot-pink);
+  }
+  .term-card h3{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:1.9rem;
+    color:var(--deep-magenta);
+    margin:8px 0 10px;
+  }
+  .term-card p{ margin:0; color:var(--ink); font-size:0.95rem; }
+
+  /* ---------- Cards grid (publications / suggestions / showcase) ---------- */
+  .grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
+
+  .card{
+    border:1.5px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    background:var(--white);
+    transition: border-color .18s ease, transform .18s ease;
+  }
+  .card:hover{ border-color:var(--barbie-pink); transform:translateY(-2px); }
+
+  .tag-row{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--deep-magenta);
+    background:var(--blush);
+    padding:4px 9px;
+    border-radius:999px;
+  }
+  .card h3{ font-size:1.08rem; font-weight:700; color:var(--ink); margin-bottom:6px; }
+  .card .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; color:var(--ink-soft); margin-bottom:10px;
+  }
+  .card p{ font-size:0.92rem; color:var(--ink-soft); margin:0 0 12px; }
+  .card .link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; font-weight:500;
+    text-decoration:none;
+    color:var(--barbie-pink);
+  }
+  .card .link:hover{ color:var(--hot-pink); }
+
+  /* status chip for showcase */
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px;
+    display:inline-block; margin-bottom:12px;
+  }
+  .status.exploring{ background:#fff2c9; color:#8a6a00; }
+  .status.prototyping{ background:#dcf3e4; color:#177a44; }
+  .status.planned{ background:var(--blush); color:var(--deep-magenta); }
+
+  /* ---------- License callout ---------- */
+  .license-box{
+    background:linear-gradient(135deg, var(--blush-2), #fff);
+    border:2px solid var(--barbie-pink);
+    border-radius:var(--radius);
+    padding:32px 30px;
+  }
+  .license-box h3{
+    font-family:'Dancing Script', cursive; font-weight:700;
+    color:var(--deep-magenta); font-size:1.7rem; margin-bottom:12px;
+  }
+  .license-box ul{ margin:16px 0; padding-left:20px; }
+  .license-box li{ margin-bottom:8px; font-size:0.95rem; }
+  .license-box .fine{ font-size:0.85rem; color:var(--ink-soft); margin-top:16px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:50px 28px 60px;
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  footer .script{ font-size:1.6rem; display:block; margin-bottom:8px; }
+  footer p{ font-size:0.85rem; color:var(--ink-soft); }
+
+  @media (max-width: 760px){
+    .terms{ grid-template-columns:1fr; }
+    .grid{ grid-template-columns:1fr; }
+    .nav-links{ font-size:11px; gap:14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-mark">Consilience Lab</div>
+    <div class="nav-links">
+      <a href="#mission">Mission</a>
+      <a href="#research">Research</a>
+      <a href="#suggestions">Suggestions</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#license">License</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="venn-bg" aria-hidden="true">
+    <svg viewBox="0 0 400 220" fill="none">
+      <circle cx="160" cy="110" r="95" stroke="#ffd3ea" stroke-width="2.5"/>
+      <circle cx="240" cy="110" r="95" stroke="#ffb0d9" stroke-width="2.5"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--barbie-pink) 40%, transparent 41%);">open &amp; free, forever</span>
+    <h1 class="script">Consilience Lab</h1>
+    <p class="tagline">A public brainstorm and research hub where consilience meets combinatory creativity — building an agentic AI meant to find the idea living in the gap between two unrelated fields.</p>
+    <div class="badge-row">
+      <span class="pill">consilience</span>
+      <span class="pill">combinatory creativity</span>
+      <span class="pill">agentic AI</span>
+      <span class="pill">built in public</span>
+    </div>
+  </div>
+</header>
+
+<section id="mission">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--barbie-pink) 40%, transparent 41%);">the premise</span>
+      <h2>Two ideas, one convergence</h2>
+      <p>This project sits at the intersection of two long-standing ideas — one about how knowledge fits together, one about how newness gets made. Everything here, including the AI itself, is being built free and in the open.</p>
+    </div>
+    <div class="terms">
+      <div class="term-card">
+        <span class="kicker">E.O. Wilson, 1998</span>
+        <h3>Consilience</h3>
+        <p>The unity of knowledge — the idea that insight from biology, physics, art, economics, and every other discipline can be woven into one coherent understanding, instead of staying siloed behind departmental walls.</p>
+      </div>
+      <div class="term-card">
+        <span class="kicker">Margaret Boden</span>
+        <h3>Combinatory Creativity</h3>
+        <p>Novelty born from recombining familiar ideas in ways that produce genuinely emergent value — not a mashup, but a synthesis where the result does something neither original idea could do alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--barbie-pink) 40%, transparent 41%);">curated reading</span>
+      <h2>Publications &amp; research</h2>
+      <p>A living, hand-curated collection of papers and projects that inform this build — grounding theory alongside real, working agentic systems. Sources link out; nothing here is reproduced beyond fair citation.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">foundation</span><span class="tag">book</span></div>
+        <h3>Consilience: The Unity of Knowledge</h3>
+        <div class="meta">E. O. Wilson · 1998</div>
+        <p>The origin text for treating knowledge unification across science, art, and the humanities as a serious methodological project rather than a metaphor.</p>
+        <a class="link" href="https://en.wikipedia.org/wiki/Consilience_(book)" target="_blank" rel="noopener">Read more →</a>
+      </div>
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">theory</span><span class="tag">creativity</span></div>
+        <h3>Combinatorial Creativity (survey)</h3>
+        <div class="meta">EmergentMind topic overview</div>
+        <p>A clear map of Boden and Koestler's framework, and where current AI systems land on the combinatorial vs. exploratory vs. transformational spectrum.</p>
+        <a class="link" href="https://www.emergentmind.com/topics/combinatorial-creativity-cc" target="_blank" rel="noopener">Read more →</a>
+      </div>
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">LLM</span><span class="tag">ideation</span></div>
+        <h3>LLMs Can Realize Combinatorial Creativity</h3>
+        <div class="meta">arXiv · 2412.14141</div>
+        <p>Applies Boden's conceptual-space framework directly to LLM-driven scientific ideation, with real emphasis on novelty vs. usefulness.</p>
+        <a class="link" href="https://arxiv.org/pdf/2412.14141" target="_blank" rel="noopener">Read paper →</a>
+      </div>
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">multi-agent</span><span class="tag">science</span></div>
+        <h3>Autonomous AI Research Supervision</h3>
+        <div class="meta">arXiv · 2603.24402</div>
+        <p>Explores how independent research agents reach consensus — a core open problem for any system trying to combine multiple domain perspectives responsibly.</p>
+        <a class="link" href="https://arxiv.org/pdf/2603.24402" target="_blank" rel="noopener">Read paper →</a>
+      </div>
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">architecture</span><span class="tag">orchestration</span></div>
+        <h3>LLM Blackboard Systems for Discovery</h3>
+        <div class="meta">arXiv · 2510.01285</div>
+        <p>A self-selecting multi-agent pattern where specialist agents volunteer onto a shared blackboard instead of being routed by a fixed coordinator — a strong fit for cross-domain idea collision.</p>
+        <a class="link" href="https://arxiv.org/pdf/2510.01285" target="_blank" rel="noopener">Read paper →</a>
+      </div>
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">closed-loop</span><span class="tag">materials</span></div>
+        <h3>MARS: Multi-Agent Materials Discovery</h3>
+        <div class="meta">Phys.org coverage, Jan 2026</div>
+        <p>Nineteen coordinated LLM agents plus robotic experimentation — a working example of consilience-style architecture closing the loop from idea to real-world validation.</p>
+        <a class="link" href="https://phys.org/news/2026-01-multi-agent-ai-robots-automate.html" target="_blank" rel="noopener">Read more →</a>
+      </div>
+
+      <div class="card">
+        <div class="tag-row"><span class="tag">cognitive science</span><span class="tag">blending</span></div>
+        <h3>Conceptual Blending in Vision-Language Models</h3>
+        <div class="meta">arXiv · 2504.13120</div>
+        <p>Grounds combinational creativity in Fauconnier &amp; Turner's blending theory, and tests whether modern models can genuinely blend rather than just interpolate.</p>
+        <a class="link" href="https://arxiv.org/pdf/2504.13120" target="_blank" rel="noopener">Read paper →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="suggestions">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--barbie-pink) 40%, transparent 41%);">from the AI collaborator</span>
+      <h2>Open suggestions</h2>
+      <p>Directions worth exploring, offered by the AI working alongside this project — not settled conclusions, starting points for discussion.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="tag-row"><span class="tag">substrate</span></div>
+        <h3>Cross-domain knowledge graph</h3>
+        <p>Typed edges (causal, structural, functional, analogical) across fields, so agents can traverse from "immune signaling" to "distributed consensus" via an explicit, defensible bridge.</p>
+      </div>
+      <div class="card">
+        <div class="tag-row"><span class="tag">roles</span></div>
+        <h3>Separate cognitive roles</h3>
+        <p>Domain specialists, a bridge/analogist agent, a critic scoring novelty–surprise–value, and a feasibility agent pulling ideas back toward buildability.</p>
+      </div>
+      <div class="card">
+        <div class="tag-row"><span class="tag">process</span></div>
+        <h3>Explicit divergence → convergence cycling</h3>
+        <p>Mirror Boden's three tiers directly: recombine, then explore variations, then deliberately try breaking the space's own rules.</p>
+      </div>
+      <div class="card">
+        <div class="tag-row"><span class="tag">evaluation</span></div>
+        <h3>Population-based selection</h3>
+        <p>Treat ideation as evolutionary search — score, keep, mutate, and cull candidates over time instead of one-shot generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="showcase">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--barbie-pink) 40%, transparent 41%);">in progress</span>
+      <h2>Showcase</h2>
+      <p>The build, out in the open. Nothing polished, everything real — updated as work actually happens.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="status planned">planned</span>
+        <h3>Cross-domain concept graph (v0)</h3>
+        <p>Seeding a small, hand-curated graph across 3–4 fields as the first substrate for idea collision.</p>
+      </div>
+      <div class="card">
+        <span class="status planned">planned</span>
+        <h3>Bridge agent prototype</h3>
+        <p>A first agent whose only job is proposing structural analogies between two domain specialists' outputs.</p>
+      </div>
+      <div class="card">
+        <span class="status planned">planned</span>
+        <h3>Novelty / value / feasibility critic</h3>
+        <p>A scoring rubric turning "interesting idea" into something measurable and comparable across runs.</p>
+      </div>
+      <div class="card">
+        <span class="status planned">planned</span>
+        <h3>This site</h3>
+        <p>The page you're reading — publishing the reading list and the reasoning before the code exists, on purpose.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="license">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--barbie-pink) 40%, transparent 41%);">terms</span>
+      <h2>Open process, protected ideas</h2>
+      <p>Working in public and protecting original work aren't in conflict — they just require saying the terms out loud.</p>
+    </div>
+
+    <div class="license-box">
+      <h3>How this work may be used</h3>
+      <ul>
+        <li>Everything published here — writing, research selections, original frameworks, and code — is <strong>© the author, all rights reserved</strong> unless a file explicitly states otherwise.</li>
+        <li>You're welcome to read, cite with attribution, and link to this work freely.</li>
+        <li>Reuse, reproduction, adaptation, or commercial use of the original ideas, writing, or code <strong>requires explicit written permission</strong> from the author first.</li>
+        <li>The curated third-party publications listed above remain the property of their respective authors and are linked, not reproduced.</li>
+      </ul>
+      <p class="fine">This page is a plain-language summary, not a legal document. See <code>LICENSE.md</code> in the repository for the governing terms.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="script">Consilience Lab</span>
+  <p>Built free, in public. Font credit: display type is Dancing Script — the nearest free, legally clean approximation of a Barbie-style script, chosen deliberately rather than reproducing Mattel's proprietary logo typeface.</p>
+</footer>
+
+</body>
+</html>
