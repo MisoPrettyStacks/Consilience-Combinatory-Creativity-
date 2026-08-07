@@ -7,7 +7,7 @@ recombining familiar ideas). Curated publications, open suggestions from
 the AI collaborator, and an honest work-in-progress showcase — built using free forever and freemium resources,
 in public.
 
-**Live site:**  GitHub Page.
+**Live site:**  [GitHub Page.](https://misoprettystacks.github.io/Consilience-Combinatory-Creativity-/)
 
 ## Structure
 
