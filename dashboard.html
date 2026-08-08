@@ -1,40 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Finance Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Consilience Lab Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Minimal placeholder styles – actual styling will be in styles.css */
+body { display: flex; min-height: 100vh; margin: 0; font-family: system-ui, sans-serif; }
+.sidebar { width: 220px; background: #fafafa; padding: 1rem; }
+.topbar { flex: 1; background: #fff; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+.main { flex: 1; display: flex; flex-direction: column; }
+.grid { display: grid; gap: 1rem; padding: 1rem; }
+.panel { background: #fff; border: 1px solid #e5e7eb; padding: 1rem; }
+.kpi { display: flex; gap: 1rem; }
+.kpi .tile { background: #fff; border: 1px solid #e5e7eb; padding: 0.5rem 1rem; text-align: center; }
+</style>
 </head>
 <body>
-    <header class="hero">
-        <h1>Finance Dashboard</h1>
-        <div class="stats">
-            <div class="stat"><span class="label">Total Strategies</span><span class="value" id="totalStrategies">-</span></div>
-            <div class="stat"><span class="label">Avg Sharpe</span><span class="value" id="avgSharpe">-</span></div>
-            <div class="stat"><span class="label">Avg Novelty</span><span class="value" id="avgNovelty">-</span></div>
-        </div>
-    </header>
+<aside class="sidebar">
+<h2>Navigation</h2>
+<ul>
+<li><a href="#">Overview</a></li>
+<li><a href="#">Strategies</a></li>
+<li><a href="#">Domain Library</a></li>
+<li><a href="#">News Feed</a></li>
+<li><a href="#">Imagery</a></li>
+<li><a href="#">Build Log</a></li>
+</ul>
+</aside>
 
-    <section class="strategies">
-        <h2>Strategy Cards</h2>
-        <div class="card-container" id="strategyCards"></div>
-    </section>
+<div class="main">
+<header class="topbar">
+<div class="search">
+<input type="text" placeholder="Search…">
+</div>
+<div class="kpi">
+<div class="tile">
+<div class="value">12</div>
+<div class="label">Strategies</div>
+</div>
+<div class="tile">
+<div class="value">0.85</div>
+<div class="label">Avg Sharpe</div>
+</div>
+<div class="tile">
+<div class="value">4</div>
+<div class="label">Active Hypotheses</div>
+</div>
+<div class="tile">
+<div class="value">Green</div>
+<div class="label">Risk Status</div>
+</div>
+</div>
+</header>
 
-    <section class="domain-library">
-        <h2>Domain Library</h2>
-        <div class="grid" id="domainGrid"></div>
-    </section>
+<main class="grid">
+<section class="panel strategy-cards">
+<h3>Strategy Cards</h3>
+<p>Placeholder for strategy cards grid.</p>
+</section>
 
-    <section class="build-log">
-        <h2>Build Log</h2>
-        <div class="log-container" id="buildLog"></div>
-    </section>
+<section class="panel news-feed">
+<h3>News &amp; Intelligence Feed</h3>
+<p>Placeholder for news headlines list.</p>
+</section>
 
-    <section class="risk-compliance">
-        <h2>Risk &amp; Compliance</h2>
-        <div class="strip" id="riskStrip"></div>
-    </section>
+<section class="panel imagery">
+<h3>Imagery / Evidence</h3>
+<p>Placeholder for imagery grid.</p>
+</section>
 
-    <script src="script.js"></script>
+<section class="panel domain-library">
+<h3>Domain Library</h3>
+<p>Placeholder for domain tags grid.</p>
+</section>
+
+<section class="panel build-log">
+<h3>Build Log</h3>
+<p>Placeholder for recent build log entries.</p>
+</section>
+</main>
+
+<footer class="risk-strip">
+<p>Risk &amp; Compliance: Placeholder banner.</p>
+</footer>
+</div>
 </body>
 </html>
