@@ -262,6 +262,33 @@
   .status.prototyping{ background:#dcf3e4; color:#177a44; }
   .status.planned{ background:var(--blush); color:var(--deep-magenta); }
 
+  /* ---------- Documentation / Changelog ---------- */
+  .doc-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
+  .doc-card{
+    border:1.5px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    background:var(--white);
+    transition: border-color .18s ease, transform .18s ease;
+  }
+  .doc-card:hover{ border-color:var(--b-pink); transform:translateY(-2px); }
+  .doc-card .doc-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--hot-pink);
+    margin-bottom:8px;
+  }
+  .doc-card h3{ font-size:1.08rem; font-weight:700; color:var(--ink); margin-bottom:6px; }
+  .doc-card p{ font-size:0.92rem; color:var(--ink-soft); margin:0 0 8px; }
+  .doc-card .doc-modules{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; color:var(--deep-magenta); margin-bottom:8px;
+  }
+  .doc-card .doc-questions{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; color:var(--ink-soft); font-style:italic;
+  }
+
   /* ---------- License callout ---------- */
   .license-box{
     background:linear-gradient(135deg, var(--blush-2), #fff);
@@ -290,6 +317,7 @@
     .terms{ grid-template-columns:1fr; }
     .grid{ grid-template-columns:1fr; }
     .pdf-section{ grid-template-columns:1fr; }
+    .doc-grid{ grid-template-columns:1fr; }
     .pdf-card embed{ height:520px; }
     .nav-links{ font-size:11px; gap:14px; }
   }
@@ -297,6 +325,7 @@
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     .card{ transition:none; }
+    .doc-card{ transition:none; }
   }
 </style>
 </head>
@@ -311,6 +340,7 @@
       <a href="#suggestions">Suggestions</a>
       <a href="#the project">the project</a>
       <a href="build-log.html">Build Log</a>
+      <a href="#documentation">Documentation</a>
       <a href="#license">License</a>
     </div>
   </div>
@@ -508,6 +538,26 @@
     </div>
 
 
+  </div>
+</section>
+
+<section id="documentation">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="--venn-icon: radial-gradient(circle, var(--b-pink) 40%, transparent 41%);">project documentation</span>
+      <h2>Documentation &amp; Changelog</h2>
+      <p>Reverse-chronological record of changes, additions, and improvements to the Consilience Lab project, per build conventions.</p>
+    </div>
+
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="doc-date">2026-08-08 14:30</div>
+        <h3>Added Finance Dashboard UI</h3>
+        <p>Created a dark-theme finance dashboard (dashboard.html, styles.css, script.js) with hero stats, horizontally-scrolling strategy cards, domain library grid, build log panel, and risk/compliance strip. The dashboard consumes strategy data from the StrategyLedger and build-log.html to provide a real-time view of generated hypotheses and project activity.</p>
+        <div class="doc-modules"><strong>Modules:</strong> dashboard.html, styles.css, script.js</div>
+        <div class="doc-questions"><strong>Open questions:</strong> Integration with live StrategyLedger.json endpoint pending; build-log.html parsing assumes specific DOM structure.</div>
+      </div>
+    </div>
   </div>
 </section>
 
