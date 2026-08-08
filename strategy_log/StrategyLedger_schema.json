@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique identifier for the strategy hypothesis." },
+    "date_created": { "type": "string", "format": "date-time", "description": "Timestamp of creation." },
+    "source_domains_signals": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of distinct signal domains/signals that converged."
+    },
+    "thesis": { "type": "string", "description": "Explicit thesis in professional finance terminology." },
+    "sharpe_target": { "type": "number", "description": "Target Sharpe ratio." },
+    "sortino_target": { "type": "number", "description": "Target Sortino ratio." },
+    "factor_exposure": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit factor exposures (e.g., value, momentum)."
+    },
+    "alpha_decay_expectation": { "type": "string", "description": "Expected alpha decay characteristics." },
+    "position_sizing_logic": { "type": "string", "description": "Rules for determining position size." },
+    "entry_criteria": { "type": "string", "description": "Conditions for entering a position." },
+    "exit_criteria": { "type": "string", "description": "Conditions for exiting a position." },
+    "stop_loss_parameters": { "type": "string", "description": "Parameters for stop-loss orders." },
+    "risk_parameters": { "type": "string", "description": "Overall risk management parameters." },
+    "status": {
+      "type": "string",
+      "enum": ["hypothesis", "backtested", "paper-traded", "retired"],
+      "description": "Current status of the strategy."
+    },
+    "combinatorial_origin": {
+      "type": "object",
+      "properties": {
+        "domains_paired": { "type": "array", "items": { "type": "string" } },
+        "reasoning": { "type": "string" }
+      },
+      "description": "Details about how the domains were combined."
+    },
+    "novelty_score": {
+      "type": "object",
+      "properties": {
+        "score": { "type": "number" },
+        "comparison_to_known_factors": { "type": "array", "items": { "type": "string" } }
+      },
+      "description": "Score and comparison against known factors."
+    },
+    "falsifiability_check": {
+      "type": "object",
+      "properties": {
+        "expected_direction_magnitude": { "type": "string" },
+        "dataset_time_window": { "type": "string" },
+        "falsification_condition": { "type": "string" },
+        "passed": { "type": "boolean" }
+      },
+      "description": "Details of the falsifiability check."
+    },
+    "backtest_results": {
+      "type": "object",
+      "properties": {
+        "sharpe_ratio": { "type": "number" },
+        "max_drawdown": { "type": "number" },
+        "win_rate": { "type": "number" },
+        "sample_size": { "type": "number" },
+        "test_period": { "type": "string" }
+      },
+      "description": "Results from backtesting."
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "reason": { "type": "string" }
+        },
+        "required": ["timestamp", "reason"]
+      },
+      "description": "Versioned record of changes to this strategy."
+    }
+  },
+  "required": [
+    "id", "date_created", "source_domains_signals", "thesis", "status",
+    "combinatorial_origin", "novelty_score", "falsifiability_check", "changelog"
+  ]
+}
