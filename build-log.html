@@ -349,6 +349,15 @@
       </div>
       <div class="card">
         <span class="status planned">planned</span>
+        <h3>Fixed Build Log Migration Error</h3>
+        <div class="log-date-time">2026-08-08 11:05 AM</div>
+        <p>Corrected a `SearchReplaceNoExactMatch` error that occurred during the migration of project log entries from <code>index.html</code> to <code>build-log.html</code>. The original `SEARCH` block contained a minor typo in a `<span>` tag which prevented it from matching the file content exactly.</p>
+        <p>This fix ensures that the `index.html` file is now correctly updated to remove the embedded log entries and link to the dedicated build log page as intended.</p>
+        <div class="log-modules"><strong>Modules:</strong> index.html</div>
+        <div class="log-questions"><strong>Open questions:</strong> None.</div>
+      </div>
+      <div class="card">
+        <span class="status planned">planned</span>
         <h3>Defined project log entry convention</h3>
         <p>Established the process for documenting changes and progress directly on the public site, following existing structural patterns.</p>
       </div>
