@@ -1,0 +1,45 @@
+Redesign the dashboard's visual style completely. Replace the current dark theme with a clean, enterprise/
+executive intelligence-dashboard aesthetic. Do not change the underlying data logic in script.js's data-fetching 
+functions — only restructure the HTML layout and rewrite styles.css.
+
+COLOR PALETTE
+- White (#FFFFFF) or near-white (#FAFAFA) background throughout
+- Dark charcoal/near-black (#1A1A2E or similar) for primary text
+- A single navy or slate-blue accent color (#2C3E67 or similar professional blue) for headers, active states, 
+  and primary buttons
+- Light gray (#E5E7EB or similar) for card borders and dividers — thin 1px borders, not heavy shadows
+- Muted status colors: a controlled green for positive/gains, a controlled red for negative/losses, amber for 
+  "pending review" or "hypothesis" status — used sparingly, only on badges/indicators, never as large fill areas
+- Subtle drop shadows on cards (very light, barely visible) instead of dark theme's glow effects
+
+LAYOUT — modular, multi-panel intelligence-platform structure
+1. Left sidebar (fixed, ~220px wide): navigation with icons + labels for: Overview, Strategies, Domain Library, 
+   News Feed, Imagery, Build Log. Highlight the active section.
+2. Top bar: search input, and 3-4 small KPI stat tiles (total strategies, avg Sharpe, active hypotheses, risk 
+   status) — small white cards with the number large and a label small underneath, not the oversized "hero" 
+   numerals from before.
+3. Main content area as a responsive grid of independent panels/widgets (not one long scrolling page):
+   - Strategy Cards panel: same card content as before (name, status badge, Sharpe, novelty score, thesis) but 
+     restyled as white cards with thin borders, arranged in a grid, not a horizontal scroll
+   - News/Intelligence Feed panel: a scrollable list area for news headlines/articles relevant to active 
+     strategies (use placeholder sample headlines for now — 4-5 example entries with title, source, timestamp)
+   - Imagery/Evidence panel: a grid area for displaying supporting imagery (satellite imagery, charts, or any 
+     visual evidence tied to a strategy's combinatorial_origin) — use placeholder gray image boxes with labels 
+     for now, since no real imagery pipeline exists yet
+   - Domain Library panel: the 25+ signal domains as a clean tag/chip grid, not a colorful cloud — simple 
+     bordered pills
+   - Build Log panel: condensed version of build-log.html's entries, most recent 5, with a "view full log" link 
+     to build-log.html
+4. Persistent risk/compliance strip: keep this clearly visible, but restyle it to fit the light theme — a thin 
+   bordered banner, not visually loud, but never hidden or collapsed by default
+
+TYPOGRAPHY
+Clean, professional sans-serif (system font stack or a font like Inter/Söhne-style) throughout. Headers medium-
+bold, not oversized/dramatic like before. This should read as a serious analyst/executive tool, not a marketing 
+landing page.
+
+Rebuild dashboard.html's structure to match this panel-based layout, and rewrite styles.css entirely to match 
+this palette and structure. Keep script.js's core data-fetching logic intact, only adjust DOM structure/class 
+names as needed to match the new HTML.
+
+Follow the CONVENTIONS.md documentation rule as usual — log this redesign in the build log.
