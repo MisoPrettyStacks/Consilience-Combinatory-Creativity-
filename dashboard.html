@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finance Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <h1>Finance Dashboard</h1>
+        <div class="stats">
+            <div class="stat"><span class="label">Total Strategies</span><span class="value" id="totalStrategies">-</span></div>
+            <div class="stat"><span class="label">Avg Sharpe</span><span class="value" id="avgSharpe">-</span></div>
+            <div class="stat"><span class="label">Avg Novelty</span><span class="value" id="avgNovelty">-</span></div>
+        </div>
+    </header>
+
+    <section class="strategies">
+        <h2>Strategy Cards</h2>
+        <div class="card-container" id="strategyCards"></div>
+    </section>
+
+    <section class="domain-library">
+        <h2>Domain Library</h2>
+        <div class="grid" id="domainGrid"></div>
+    </section>
+
+    <section class="build-log">
+        <h2>Build Log</h2>
+        <div class="log-container" id="buildLog"></div>
+    </section>
+
+    <section class="risk-compliance">
+        <h2>Risk & Compliance</h2>
+        <div class="strip" id="riskStrip"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
