@@ -339,7 +339,7 @@
 
     <div class="grid">
       <div class="card">
-        <span class="status planned">planned</span>
+        <span class="status prototyping">prototyping</span>
         <h3>Created Build Log Page & Adopted Conventions</h3>
         <div class="log-date-time">2026-08-08 11:00 AM</div>
         <p>This entry documents the creation of <code>build-log.html</code> as the dedicated location for all project log entries. This change aligns with the new `CONVENTIONS.md` requirements for documenting every modification to the project.</p>
@@ -348,12 +348,20 @@
         <div class="log-questions"><strong>Open questions:</strong> Should the older log entries from `index.html` be retroactively updated to include date/time, modules touched, and open questions? For now, they retain their original format.</div>
       </div>
       <div class="card">
-        <span class="status planned">planned</span>
+        <span class="status prototyping">prototyping</span>
         <h3>Fixed Build Log Migration Error</h3>
         <div class="log-date-time">2026-08-08 11:05 AM</div>
         <p>Corrected a `SearchReplaceNoExactMatch` error that occurred during the migration of project log entries from <code>index.html</code> to <code>build-log.html</code>. The original `SEARCH` block contained a minor typo in a `<span>` tag which prevented it from matching the file content exactly.</p>
         <p>This fix ensures that the `index.html` file is now correctly updated to remove the embedded log entries and link to the dedicated build log page as intended.</p>
         <div class="log-modules"><strong>Modules:</strong> index.html</div>
+        <div class="log-questions"><strong>Open questions:</strong> None.</div>
+      </div>
+      <div class="card">
+        <span class="status prototyping">prototyping</span>
+        <h3>Updated Build Log Entry Statuses</h3>
+        <div class="log-date-time">2026-08-08 11:15 AM</div>
+        <p>Changed the `status` from `planned` to `prototyping` for the "Created Build Log Page & Adopted Conventions" and "Fixed Build Log Migration Error" entries. This modification more accurately reflects that these are completed development actions rather than future plans.</p>
+        <div class="log-modules"><strong>Modules:</strong> build-log.html</div>
         <div class="log-questions"><strong>Open questions:</strong> None.</div>
       </div>
       <div class="card">
