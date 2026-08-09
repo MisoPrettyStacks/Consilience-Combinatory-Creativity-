@@ -1,0 +1,26 @@
+[
+  {
+    "id": "CAE-0001",
+    "name": "Patent-Velocity Momentum Overlay",
+    "status": "hypothesis",
+    "sharpe": 1.12,
+    "novelty_score": 0.81,
+    "thesis": "Momentum conditioned on patent-filing acceleration in mid-cap industrials.",
+    "combinatorial_origin": "Patent filing velocity + 12-month price momentum",
+    "domains": ["Patent filings", "Price momentum"],
+    "news": [{ "title": "USPTO filings up 14% YoY in industrial automation", "source": "Reuters", "date": "2026-07-30" }],
+    "imagery": [{ "label": "Filing velocity chart" }]
+  },
+  {
+    "id": "CAE-0002",
+    "name": "Shipping-AIS Supply Shock Signal",
+    "status": "backtested",
+    "sharpe": 0.94,
+    "novelty_score": 0.76,
+    "thesis": "Freight rate divergence from AIS congestion data predicts short-term commodity vol.",
+    "combinatorial_origin": "AIS vessel congestion + commodity implied vol",
+    "domains": ["Shipping/AIS data", "Options skew"],
+    "news": [{ "title": "Port congestion rises at major Pacific hubs", "source": "Bloomberg", "date": "2026-08-02" }],
+    "imagery": [{ "label": "AIS congestion heatmap" }]
+  }
+]
