@@ -13,6 +13,8 @@ in public.
 
 The **Consilience Alpha Engine** is a decision-support and strategy R&D tool designed to generate original trading and investment theses. It is not a live-trading executor; all trade signals must route to a human-approval step before any real order would ever be placed.
 
+live dashboard link: (NOT LIVE DATA YET) https://misoprettystacks.github.io/Consilience-Combinatory-Creativity-/dashboard.html
+
 ### Philosophy & Methodology
 
 The core concept behind the Consilience Alpha Engine is to operationalize E.O. Wilson's **consilience** (cross-domain evidence convergence) and Margaret Boden's **combinatory creativity** (novel recombination of existing concepts) to generate genuinely original investment strategies. This methodology explicitly seeks to discover non-obvious connections between disparate data domains to identify novel "latent variables" that drive market behavior, rather than relying on scraped or copied strategies.
