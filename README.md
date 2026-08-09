@@ -7,13 +7,13 @@ recombining familiar ideas). Curated publications, open suggestions from
 the AI collaborator, and an honest work-in-progress showcase — built using free forever and freemium resources,
 in public.
 
-**Live site:** [GitHub Page.](https://misoprettystacks.github.io/Consilience-Combinatory-Creativity-/)
+**Live site project building in public:** [GitHub Page.](https://misoprettystacks.github.io/Consilience-Combinatory-Creativity-/)
 
 ## Consilience Alpha Engine
 
 The **Consilience Alpha Engine** is a decision-support and strategy R&D tool designed to generate original trading and investment theses. It is not a live-trading executor; all trade signals must route to a human-approval step before any real order would ever be placed.
 
-live dashboard link: (NOT LIVE DATA YET) https://misoprettystacks.github.io/Consilience-Combinatory-Creativity-/dashboard.html
+**Live dashboard link:** (NOT LIVE DATA YET) https://misoprettystacks.github.io/Consilience-Combinatory-Creativity-/dashboard.html
 
 ### Philosophy & Methodology
 
