@@ -5,85 +5,87 @@
 <title>Consilience Lab Dashboard</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* Minimal placeholder styles – actual styling will be in styles.css */
-body { display: flex; min-height: 100vh; margin: 0; font-family: system-ui, sans-serif; }
-.sidebar { width: 220px; background: #fafafa; padding: 1rem; }
-.topbar { flex: 1; background: #fff; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+body { display: flex; min-height: 100vh; margin: 0; font-family: system-ui, sans-serif; background:#fafafa; color:#1a1a2e; }
+.sidebar { width: 220px; background: #fff; padding: 1rem; border-right:1px solid #e5e7eb; }
+.sidebar h2 { font-size:0.9rem; text-transform:uppercase; color:#6b7280; }
+.sidebar ul { list-style:none; padding:0; }
+.sidebar li a { display:block; padding:0.5rem; border-radius:6px; color:#1a1a2e; text-decoration:none; }
+.sidebar li a:hover { background:#f0f2f5; }
 .main { flex: 1; display: flex; flex-direction: column; }
-.grid { display: grid; gap: 1rem; padding: 1rem; }
-.panel { background: #fff; border: 1px solid #e5e7eb; padding: 1rem; }
+.topbar { background: #fff; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom:1px solid #e5e7eb; }
+.topbar input { padding:0.5rem; border:1px solid #e5e7eb; border-radius:6px; width:240px; }
 .kpi { display: flex; gap: 1rem; }
-.kpi .tile { background: #fff; border: 1px solid #e5e7eb; padding: 0.5rem 1rem; text-align: center; }
+.kpi .tile { background: #fff; border: 1px solid #e5e7eb; border-radius:8px; padding: 0.5rem 1rem; text-align: center; min-width:90px; }
+.kpi .value { font-size:1.4rem; font-weight:700; color:#2C3E67; }
+.kpi .label { font-size:0.75rem; color:#6b7280; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1.5rem; }
+.panel { background: #fff; border: 1px solid #e5e7eb; border-radius:8px; padding: 1rem; }
+.panel h3 { margin-top:0; font-size:1rem; color:#2C3E67; }
+.strategy-card { border:1px solid #e5e7eb; border-radius:6px; padding:0.75rem; margin-bottom:0.5rem; }
+.strategy-card .title { font-weight:600; }
+.badge { display:inline-block; font-size:0.7rem; padding:0.15rem 0.5rem; border-radius:4px; margin-left:0.5rem; }
+.badge.hypothesis { background:#fef3c7; color:#92400e; }
+.badge.backtested { background:#dbeafe; color:#1e40af; }
+.badge.paper-traded { background:#d1fae5; color:#065f46; }
+.badge.retired { background:#e5e7eb; color:#374151; }
+.news-item, .log-item { border-bottom:1px solid #f0f2f5; padding:0.5rem 0; font-size:0.9rem; }
+.news-item .source { color:#6b7280; font-size:0.75rem; }
+.domain-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.domain-tag { border:1px solid #e5e7eb; border-radius:999px; padding:0.25rem 0.75rem; font-size:0.8rem; }
+.imagery-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem; }
+.imagery-box { background:#f0f2f5; border:1px dashed #cbd5e1; border-radius:6px; height:80px; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#6b7280; text-align:center; padding:0.25rem;}
+.risk-strip { background:#fff7ed; border-top:1px solid #fed7aa; padding:0.75rem 1.5rem; font-size:0.85rem; color:#9a3412; }
+.full-width { grid-column: 1 / -1; }
 </style>
 </head>
 <body>
 <aside class="sidebar">
-<h2>Navigation</h2>
-<ul>
-<li><a href="#">Overview</a></li>
-<li><a href="#">Strategies</a></li>
-<li><a href="#">Domain Library</a></li>
-<li><a href="#">News Feed</a></li>
-<li><a href="#">Imagery</a></li>
-<li><a href="#">Build Log</a></li>
-</ul>
+  <h2>Consilience Lab</h2>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#strategies">Strategies</a></li>
+    <li><a href="#domains">Domain Library</a></li>
+    <li><a href="#news">News Feed</a></li>
+    <li><a href="#imagery">Imagery</a></li>
+    <li><a href="build-log.html">Build Log</a></li>
+  </ul>
 </aside>
-
 <div class="main">
-<header class="topbar">
-<div class="search">
-<input type="text" placeholder="Search…">
+  <header class="topbar" id="overview">
+    <input type="text" placeholder="Search strategies…">
+    <div class="kpi">
+      <div class="tile"><div class="value" id="kpi-total">–</div><div class="label">Strategies</div></div>
+      <div class="tile"><div class="value" id="kpi-sharpe">–</div><div class="label">Avg Sharpe</div></div>
+      <div class="tile"><div class="value" id="kpi-active">–</div><div class="label">Active Hypotheses</div></div>
+      <div class="tile"><div class="value" id="kpi-risk">–</div><div class="label">Risk Status</div></div>
+    </div>
+  </header>
+  <main class="grid">
+    <section class="panel full-width" id="strategies">
+      <h3>Strategy Cards</h3>
+      <div id="strategy-cards-container">Loading…</div>
+    </section>
+    <section class="panel" id="news">
+      <h3>News &amp; Intelligence Feed</h3>
+      <div id="news-feed-container">Loading…</div>
+    </section>
+    <section class="panel" id="imagery">
+      <h3>Imagery / Evidence</h3>
+      <div id="imagery-container">Loading…</div>
+    </section>
+    <section class="panel" id="domains">
+      <h3>Domain Library</h3>
+      <div id="domain-tags-container">Loading…</div>
+    </section>
+    <section class="panel">
+      <h3>Build Log (recent)</h3>
+      <div id="build-log-container">Loading…</div>
+    </section>
+  </main>
+  <footer class="risk-strip">
+    <strong>Risk &amp; Compliance:</strong> Research/decision-support tool only. No live trades without explicit human approval.
+  </footer>
 </div>
-<div class="kpi">
-<div class="tile">
-<div class="value">12</div>
-<div class="label">Strategies</div>
-</div>
-<div class="tile">
-<div class="value">0.85</div>
-<div class="label">Avg Sharpe</div>
-</div>
-<div class="tile">
-<div class="value">4</div>
-<div class="label">Active Hypotheses</div>
-</div>
-<div class="tile">
-<div class="value">Green</div>
-<div class="label">Risk Status</div>
-</div>
-</div>
-</header>
-
-<main class="grid">
-<section class="panel strategy-cards">
-<h3>Strategy Cards</h3>
-<p>Placeholder for strategy cards grid.</p>
-</section>
-
-<section class="panel news-feed">
-<h3>News &amp; Intelligence Feed</h3>
-<p>Placeholder for news headlines list.</p>
-</section>
-
-<section class="panel imagery">
-<h3>Imagery / Evidence</h3>
-<p>Placeholder for imagery grid.</p>
-</section>
-
-<section class="panel domain-library">
-<h3>Domain Library</h3>
-<p>Placeholder for domain tags grid.</p>
-</section>
-
-<section class="panel build-log">
-<h3>Build Log</h3>
-<p>Placeholder for recent build log entries.</p>
-</section>
-</main>
-
-<footer class="risk-strip">
-<p>Risk &amp; Compliance: Placeholder banner.</p>
-</footer>
-</div>
+<script src="script.js"></script>
 </body>
 </html>
